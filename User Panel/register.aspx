@@ -86,7 +86,7 @@
 	<a href="login.aspx" target="_self" class="w-100 btn btn-lg btn-secondary">Giriş Yap</a>
             <br />
             <br />
-    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022 | Ümeyir ATASOY</p>
   </form>
 </main>
 

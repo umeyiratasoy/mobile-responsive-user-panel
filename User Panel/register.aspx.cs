@@ -11,7 +11,7 @@ namespace User_Panel
 {
     public partial class register : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection(@"Data Source=ATASOY;Initial Catalog=userpanel;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=VERİTABANIADI;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
 
