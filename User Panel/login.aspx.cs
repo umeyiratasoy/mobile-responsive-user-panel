@@ -12,7 +12,7 @@ namespace User_Panel
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=VERİTABANIADI;Integrated Security=True");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +20,9 @@ namespace User_Panel
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter da = new SqlDataAdapter("select * from kullanici where eposta=@eposta and sifre=@sifre", baglan);
+            Baglanti baglantimiz = new Baglanti();
+            SqlConnection esasbaglanti = baglantimiz.Baglan();
+            SqlDataAdapter da = new SqlDataAdapter("select * from kullanici where eposta=@eposta and sifre=@sifre", esasbaglanti);
             da.SelectCommand.Parameters.Add("@eposta", SqlDbType.NVarChar, 50);
             da.SelectCommand.Parameters.Add("@sifre", SqlDbType.NVarChar, 50);
             da.SelectCommand.Parameters["@eposta"].Value = TextBox1.Text;

@@ -11,24 +11,25 @@ namespace User_Panel
 {
     public partial class register : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=VERİTABANIADI;Integrated Security=True");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            baglan.Open();
+            Baglanti baglantimiz = new Baglanti();
+            SqlConnection esasbaglanti = baglantimiz.Baglan();
             SqlCommand cmd = new SqlCommand(@"insert into kullanici (ad,soyad,eposta,sifre,cinsiyet) values(@ad,
-            @soyad,@eposta,@sifre,@cinsiyet)", baglan);
+            @soyad,@eposta,@sifre,@cinsiyet)", esasbaglanti);
             cmd.Parameters.AddWithValue("ad", TextBox1.Text);
             cmd.Parameters.AddWithValue("soyad", TextBox2.Text);
             cmd.Parameters.AddWithValue("eposta", TextBox3.Text);
             cmd.Parameters.AddWithValue("sifre", TextBox5.Text);
             cmd.Parameters.AddWithValue("cinsiyet", DropDownList1.Text);
             cmd.ExecuteNonQuery();
-            baglan.Close();
+            esasbaglanti.Close();
             Label2.Visible = true;
             TextBox1.Text = "";
             TextBox2.Text = "";
